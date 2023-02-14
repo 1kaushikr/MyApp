@@ -1,0 +1,29 @@
+﻿@model MyApp.Models.Pass
+
+
+@{
+    var imgSrc = String.Format("data:image/jpeg;base64,{0}",Model.Photo);
+}
+<div>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Title)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+
+    </dl>
+</div>
+<img id="ItemPreview" width="50" height="50" src=@imgSrc>
+<div>
+    <a asp-action="List">Back to List</a>
+</div>
+

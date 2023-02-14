@@ -1,0 +1,36 @@
+﻿@model IEnumerable<MyApp.Models.Pass>
+
+<h1>List</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Photo)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.ActionLink(item.Title,"Detail","Home",new { id=item.Id })
+                </td>
+                <td>
+                    @{
+                        var imgSrc = String.Format("data:image/jpeg;base64,{0}", item.Photo);
+                    }
+                    <img id="ItemPreview" width="50" height="50" src=@imgSrc>
+                </td>
+                <td>
+                    @Html.ActionLink("Edit","Edit","Home",new { id=item.Id })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
